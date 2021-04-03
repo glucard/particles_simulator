@@ -152,7 +152,6 @@
     <ClCompile Include="particle_physics.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="main.h" />
     <ClInclude Include="mymath.hpp" />
     <ClInclude Include="particle.hpp" />
     <ClInclude Include="particle_physics.hpp" />
