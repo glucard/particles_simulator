@@ -5,7 +5,7 @@ Position::Position(float px, float py) {
 	x = px;
 	y = py;
 }
-float Position::getX() {
+float Position::getX() { 
 	return x;
 }
 float Position::getY() {
@@ -70,7 +70,6 @@ void Velocity::limit(float velocity_limit) {
 	}
 }
 
-
 Particle::Particle(float px, float py, float vx, float vy, float _mass, float _radius)
 	:
 	position(px, py),
@@ -109,6 +108,7 @@ void Particle::limits(float limit_x, float limit_y) {
 		velocity.invertY();
 	}
 }
+
 void Particle::update(float ticket, float limit_x, float limit_y, float velocity_limit) {
 	velocity.limit(velocity_limit);
 	position.moveX(velocity.getX()/ticket);

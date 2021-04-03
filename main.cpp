@@ -18,7 +18,6 @@
 #define VELOCITY_LIMIT 2000
 #define TICKET 600
 
-
 #define INT_TYPE 0
 #define FLOAT_TYPE 1
 struct Setting
@@ -94,8 +93,8 @@ void update(sf::RenderWindow* window, Particle** particles, float n_particles, f
     for (int i = 0; i < n_particles; i++) {
         // For each particle in particles
         for (int j = i + 1; j < n_particles; j++) {
-            // apply the colision and gravity physics for each other particle in particles.
-            colision(particles[i], particles[j], pad, bounciness, false);
+            // apply the collision and gravity physics for each other particle in particles.
+            collision(particles[i], particles[j], pad, bounciness, false);
             gravity(particles[i], particles[j], gravity_const);
         }
         // update the particles.
@@ -145,8 +144,8 @@ int main()
     };
     const int settingCount = 6;
     int currentSetting = 0;
-
-
+    
+    // starting particles.
     Particle** particles;
     sf::RenderWindow window(sf::VideoMode(X_LIMIT, Y_LIMIT), "Particles Simulator");
     particles = initiateParticles(n_particles, particle_mass, particles_radius, X_LIMIT, Y_LIMIT, velocity_limit);
@@ -162,7 +161,6 @@ int main()
 
     // 
     std::ostringstream osstr;
-
 
     while (window.isOpen())
     {
@@ -236,9 +234,7 @@ int main()
                 }
             }
         }
-        window.display();
-
-       
+        window.display(); // display window.
     }
     for (int i = 0; i < old_n_particles; i++) {
         free(particles[i]);

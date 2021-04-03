@@ -37,7 +37,7 @@ void padding(Particle* particle_1, Particle* particle_2, float distance, float r
 	particle_2->position.moveY(adjustAxis(py / 2, distance, new_distance - distance));
 }
 
-int colision(Particle* particle_1, Particle* particle_2, float pad, float bounciness, bool isTrigger) {
+int collision(Particle* particle_1, Particle* particle_2, float pad, float bounciness, bool isTrigger) {
 	float distance = calculateDistance(particle_1, particle_2);
 	float radius = particle_1->getRadius() + particle_2->getRadius();
 	if (distance <= radius + pad) {
@@ -51,7 +51,7 @@ int colision(Particle* particle_1, Particle* particle_2, float pad, float bounci
 }
 
 void gravity(Particle* particle_1, Particle* particle_2, float g) {
-	//if (not(colision(particle_1, particle_2, 0, 0, true))) {
+	//if (not(collision(particle_1, particle_2, 0, 0, true))) {
 	float px = particle_2->position.getX() - particle_1->position.getX();
 	float py = particle_2->position.getY() - particle_1->position.getY();
 	float distance = norm(px, py);
